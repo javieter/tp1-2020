@@ -1,29 +1,58 @@
 package ejercicio2;
 
+import java.util.Scanner;
+
 public class Test {
+	public static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		String cadena;
+		int opcion, numero;
+		float tiempo;
+		
+		cadena = ingresaString("Ingrese nombre de especialidad de la carrera: ");
+		Carrera c1 = new Carrera(cadena);
+		do {
+			opcion = ingreseNumero(0, 2, "1- Ingresar atleta \n"
+					+ "2- Obtener ganador \n"
+					+ "0- Salir \n"
+					+ "Ingrese opcion: ");
+			switch (opcion) {
+			case 1:
+				System.out.print("Ingrese numero de atleta: ");
+				numero  = input.nextInt();
+				System.out.print("Ingrese tiempo en segundos: ");
+				tiempo = input.nextFloat();
+				c1.ingresarAtleta(numero, tiempo);
+				break;
+			case 2:
+				c1.mostrarGanador();
+			break;
 
-		Carrera c1 = new Carrera("100 metros");
-		c1.ingresarAtleta(5, 54);
-		c1.ingresarAtleta(3, 44);
-		c1.ingresarAtleta(8, 45);
-		c1.ingresarAtleta(12, 34);
-		c1.ingresarAtleta(23, 46);
-		c1.ingresarAtleta(31, 34);
-		c1.ingresarAtleta(22, 49);
-		c1.ingresarAtleta(66, 43);
-		c1.ingresarAtleta(87, 44);
-		System.out.println(c1);
-		c1.mostrarGanador();
-
-		Carrera c2 = new Carrera("1000 metros");
-		System.out.println(c2);
-		c2.mostrarGanador();
-		c2.ingresarAtleta(3, 65.33f);
-		c2.ingresarAtleta(7, 65.35f);
-		c2.mostrarGanador();
+			default:
+				break;
+			}
+			System.out.println("\n"+"\n");
+		}while(opcion != 0);
+		
+		input.close();
+		
+	}
+	public static String ingresaString(String mje) {
+		String cadena;
+		System.out.print(mje);
+		cadena = input.nextLine();
+		return cadena;
+	}
+	public static int ingreseNumero(int min, int max, String mje) {
+		int valor;
+		do {
+			System.out.print(mje);
+			valor = input.nextInt();
+		}while(valor<min||valor>max);
+		input.nextLine();
+		return valor;
 	}
 
 }

@@ -33,8 +33,25 @@ public class Carrera {
 	}
 
 	public void ingresarAtleta(int numero, float tiempo) {
-		Atleta atleta = new Atleta(numero, tiempo);
-		this.atletas.add(atleta);
+		if(!existeAtleta(numero)) {
+			Atleta atleta = new Atleta(numero, tiempo);
+			this.atletas.add(atleta);
+		}else
+			System.out.println("El atleta numero: "+numero+" ya existe cargado en la carrera");
+		
+	}
+	
+	private boolean existeAtleta(int numero) {
+		boolean existe = false;
+		int i = 0;
+		
+		while(i<this.atletas.size()&&!existe) {
+			if(this.atletas.get(i).getNumero()==numero)
+				existe = true;
+			else
+				i++;
+		}
+		return existe;
 	}
 
 	private float mejorTiempo() {
