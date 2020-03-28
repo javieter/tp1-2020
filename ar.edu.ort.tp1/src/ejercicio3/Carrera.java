@@ -1,6 +1,8 @@
-package ejercicio2;
+package ejercicio3;
 
 import java.util.ArrayList;
+
+import ejercicio2.Atleta;
 
 public class Carrera {
 	private String especialidad;
@@ -33,16 +35,15 @@ public class Carrera {
 	}
 
 	public void ingresarAtleta(int numero, float tiempo) {
-		Atleta atleta = new Atleta(numero, tiempo);
-		this.atletas.add(atleta);
+		this.atletas.add(new Atleta(numero, tiempo));
 	}
 
-	private float mejorTiempo() {
-		float tiempo = this.atletas.get(0).getTiempo();
-		for (Atleta auxAtleta : this.atletas) {
-			if (auxAtleta.getTiempo() < tiempo)
-				tiempo = auxAtleta.getTiempo();
-		}
+	private float[] mejorTiempo() {
+		float[] tiempo = new float[3];
+		ArrayList<Float> tiempos = new ArrayList<Float>();
+		for(Atleta auxAtleta:this.atletas)
+			tiempos.add(auxAtleta.getTiempo());
+		
 		return tiempo;
 	}
 
@@ -71,3 +72,4 @@ public class Carrera {
 	}
 
 }
+
