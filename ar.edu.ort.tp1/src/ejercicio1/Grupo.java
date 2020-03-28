@@ -20,7 +20,7 @@ public class Grupo {
 	public String getNombre() {
 		return nombre;
 	}
-
+	
 	private void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -42,6 +42,8 @@ public class Grupo {
 			this.integrantes.add(nombreIntegrante);
 			System.out.println(nombreIntegrante +" fue agregado al grupo " + this.nombre);
 		}
+		else
+			System.out.println(nombreIntegrante +" ya existe en el grupo ");
 			
 	}
 
