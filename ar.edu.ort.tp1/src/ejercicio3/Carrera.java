@@ -7,10 +7,12 @@ import ejercicio2.Atleta;
 public class Carrera {
 	private String especialidad;
 	private ArrayList<Atleta> atletas;
+	private float[] podio;
 
 	public Carrera(String especialidad) {
 		this.especialidad = especialidad;
 		this.atletas = new ArrayList<Atleta>();
+		this.podio = new float[] {-1,-1,-1};
 	}
 
 	public Carrera(String especialidad, ArrayList<Atleta> atletas) {
@@ -37,13 +39,21 @@ public class Carrera {
 	public void ingresarAtleta(int numero, float tiempo) {
 		this.atletas.add(new Atleta(numero, tiempo));
 	}
-
-	private float[] mejorTiempo() {
-		float[] tiempo = new float[3];
+	
+	private void obtenerPodio() {
 		ArrayList<Float> tiempos = new ArrayList<Float>();
-		for(Atleta auxAtleta:this.atletas)
-			tiempos.add(auxAtleta.getTiempo());
+		for (int i=0;this.atletas.size()<i;i++) {
+				tiempos.add(this.atletas.get(i).getTiempo());
+		}
 		
+	}
+
+	private float mejorTiempo() {
+		float tiempo = this.atletas.get(0).getTiempo();
+		for (Atleta auxAtleta : this.atletas) {
+			if (auxAtleta.getTiempo() < tiempo)
+				tiempo = auxAtleta.getTiempo();
+		}
 		return tiempo;
 	}
 

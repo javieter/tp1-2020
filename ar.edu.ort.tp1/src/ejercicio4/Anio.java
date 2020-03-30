@@ -3,8 +3,8 @@ package ejercicio4;
 import java.util.Arrays;
 
 public class Anio {
-	String[] meses;
-	int[][] dias;
+	private String[] meses;
+	private int[][] dias;
 	
 	public Anio() {
 		this.meses = new String [] {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Sepriembre","Octubre","Noviembre","Diciembre"};
