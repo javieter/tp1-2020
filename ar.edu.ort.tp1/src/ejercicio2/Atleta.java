@@ -1,34 +1,33 @@
 package ejercicio2;
 
 public class Atleta {
-	private int numero;
-	private float tiempo;
-	
-	public Atleta(int numero, float tiempo) {
-		this.numero = numero;
-		this.tiempo = tiempo;
-	}
-	
-	public int getNumero() {
-		return numero;
-	}
+	private String nombre;
+	private double tiempo;
 
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-
-	public void setTiempo(float tiempo) {
+	public Atleta(String nombre, double tiempo) {
+		this.nombre = nombre;
 		this.tiempo = tiempo;
 	}
 
-	public float getTiempo() {
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public double getTiempo() {
 		return tiempo;
+	}
+
+	public void setTiempo(double tiempo) {
+		this.tiempo = tiempo;
 	}
 
 	@Override
 	public String toString() {
-		return "Atleta [numero=" + numero + ", tiempo=" + tiempo + "]";
+		return "Atleta [nombre=" + nombre + ", tiempo=" + tiempo + "]";
 	}
-	
-	
+
 }
