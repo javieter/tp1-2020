@@ -45,8 +45,8 @@ public class Test {
 			System.out.print("Desea continuar s/n? :");
 			sn = input.nextLine().toLowerCase().charAt(0);
 		} while (sn != 's' && sn != 'n');
-		if (sn == 'n')
-			respuesta = false;
+		if (sn == 's')
+			respuesta = true;
 		return respuesta;
 	}
 

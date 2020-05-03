@@ -1,6 +1,5 @@
 package ejercicio1;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Test {
@@ -20,7 +19,7 @@ public class Test {
 		Grupo g = new Grupo(cadena);
 		do {
 			
-			opcion=ingreseNumero(1, 10, menu());
+			opcion=ingreseNumero(0, 9, menu());
 			switch (opcion) {
 			case 1:
 				System.out.println(g.getNombre());
@@ -36,16 +35,16 @@ public class Test {
 				int posicion;
 				System.out.print("Posicion: ");
 				posicion = input.nextInt();
-				System.out.println(g.obtenerIntegrante(posicion));
+				System.out.println("El integrante en la posicion " + posicion + ": " + g.obtenerIntegrante(posicion));
 				input.nextLine();
 				break;
 			case 5:
 				cadena = ingresaString("Ingrese el nombre del integrante: ");
-				System.out.println(g.buscarIntegrante(cadena));
+				System.out.println(cadena + " = " + g.buscarIntegrante(cadena));
 				break;
 			case 6:
 				cadena = ingresaString("Ingrese el nombre del integrante a eliminar: ");
-				System.out.println(g.removerIntegrante(cadena));
+				System.out.println("Se elimino el integrante: " + g.removerIntegrante(cadena));
 				break;
 			case 7:
 				g.mostrar();
@@ -58,7 +57,7 @@ public class Test {
 				break;
 			}
 			System.out.println("\n"+"\n");
-		}while(opcion!=9);
+		}while(opcion!=0);
 		
 		input.close();
 
@@ -72,7 +71,7 @@ public class Test {
 				+ "6 - Remover integrante por nombre \n"
 				+ "7 - Ver datos del grupo \n"
 				+ "8 - Remover todos los integrantes \n"
-				+ "9 - Salir \n"
+				+ "0 - Salir \n"
 				+ "Ingrese opcion: ";
 	}
 	public static int ingreseNumero(int min, int max, String mje) {
